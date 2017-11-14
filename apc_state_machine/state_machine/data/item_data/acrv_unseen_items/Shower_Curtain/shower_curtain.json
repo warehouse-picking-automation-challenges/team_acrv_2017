@@ -1,0 +1,12 @@
+{
+    "name": "shower_curtain",
+    "dimensions": [
+        0.180,
+        0.290,
+        0.015
+    ],
+    "weight": 0.0,
+    "type": "deformable",
+    "description": "Object."
+}
+

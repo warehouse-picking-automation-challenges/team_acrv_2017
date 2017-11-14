@@ -1,0 +1,4 @@
+apc_msgs/PointcloudRGB pointcloud_rgb
+---
+apc_msgs/ObjectProposals object_proposals
+apc_msgs/ObjectProposals most_central

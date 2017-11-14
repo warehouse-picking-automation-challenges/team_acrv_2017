@@ -1,0 +1,280 @@
+storage_specs:
+  storage_A:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 20
+    h_high: 40
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: false
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.2
+    x_max: 0.2
+    y_min: -0.32
+    y_max: 0.32
+    z_min: 0.65
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 360
+    img_left: 195
+    img_right: 455
+
+  storage_A_backup_1:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 20
+    h_high: 40
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: false
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.3
+    x_max: 0.3
+    y_min: -0.3
+    y_max: 0.3
+    z_min: 0.3
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 360
+    img_left: 50
+    img_right: 580
+
+  storage_A_backup_2:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 20
+    h_high: 40
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: false
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.3
+    x_max: 0.3
+    y_min: -0.3
+    y_max: 0.3
+    z_min: 0.3
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 360
+    img_left: 50
+    img_right: 580
+
+  storage_B:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 20
+    h_high: 43
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: false
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.2
+    x_max: 0.2
+    y_min: -0.32
+    y_max: 0.32
+    z_min: 0.65
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 360
+    img_left: 195
+    img_right: 455
+
+  storage_B_backup_1:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 20
+    h_high: 40
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: false
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.3
+    x_max: 0.3
+    y_min: -0.3
+    y_max: 0.3
+    z_min: 0.3
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 360
+    img_left: 50
+    img_right: 580
+
+  storage_B_backup_2:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 20
+    h_high: 40
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: false
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.3
+    x_max: 0.3
+    y_min: -0.3
+    y_max: 0.3
+    z_min: 0.3
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 360
+    img_left: 50
+    img_right: 580
+
+  stow_tote:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 8
+    h_high: 173
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: true
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.3
+    x_max: 0.3
+    y_min: -0.28
+    y_max: 0.12
+    z_min: 0.3
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 330
+    img_left: 0
+    img_right: 640
+
+  amnesty_tote:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 8
+    h_high: 173
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: true
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -0.15
+    x_max: 0.18
+    y_min: -0.3
+    y_max: 0.3
+    z_min: 0.6
+    z_max: 1000
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 480
+    img_left: 0
+    img_right: 640
+
+
+  storage_test:
+      # HSV alues that will be kept.
+      # Hue: 0-180
+    h_low: 20
+    h_high: 40
+      # true: filter out values outside h_low-h_high
+      # false: filter out values inside (<h_low || > h_high)
+    h_inside: false
+      # Saturation: 0-255
+    s_low: 0
+    s_high: 255
+      # Value: 0-255
+    v_low: 0
+    v_high: 255
+
+    # Remove points outside these boundaries
+    # voxel coordinates (in metres) in frame of camera.
+    x_min: -1000
+    x_max: 1000
+    y_min: -1000
+    y_max: 1000
+    z_min: 0.3
+    z_max: 1
+
+    # Crop the RGB/Depth images as well (640x480)
+    # Keep pixels inside this rectangle.
+    img_top: 0
+    img_bottom: 480
+    img_left: 0
+    img_right: 640

@@ -1,0 +1,12 @@
+{
+    "name": "utility_brush",
+    "dimensions": [
+        0.080,
+        0.140,
+        0.050
+    ],
+    "weight": 0.0,
+    "type": "other",
+    "description": "Object."
+}
+

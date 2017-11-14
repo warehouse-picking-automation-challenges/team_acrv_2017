@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<launch>
+    <node pkg="nodelet" type="nodelet" name="realsense_nodelet_manager" args="manager"/>
+
+    <node pkg="nodelet" type="nodelet" name="rectify_rgb"
+        args="load image_proc/rectify realsense_nodelet_manager">
+
+        <remap from="camera_info" to="/realsense_wrist_local/rgb/camera_info"/>
+        <remap from="image_mono" to="/realsense_wrist_local/rgb/image_raw"/>
+
+        <remap from="image_rect" to="/realsense_wrist_local/rgb/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="rectify_ir"
+        args="load image_proc/rectify realsense_nodelet_manager">
+
+        <remap from="camera_info" to="/realsense_wrist_local/ir/camera_info"/>
+        <remap from="image_mono" to="/realsense_wrist_local/ir/image_raw"/>
+
+        <remap from="image_rect" to="/realsense_wrist_local/ir/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="convert_depth"
+        args="load depth_image_proc/convert_metric realsense_nodelet_manager">
+
+        <remap from="image_raw" to="/realsense_wrist_local/depth/image_raw"/>
+
+        <remap from="image" to="/realsense_wrist_local/depth/image_raw_m"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="rectify_depth"
+        args="load image_proc/rectify realsense_nodelet_manager">
+
+        <remap from="camera_info" to="/realsense_wrist_local/depth/camera_info"/>
+        <remap from="image_mono" to="/realsense_wrist_local/depth/image_raw_m"/>
+
+        <remap from="image_rect" to="/realsense_wrist_local/depth/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="register_depth"
+        args="load depth_image_proc/register realsense_nodelet_manager">
+
+        <param name="queue_size" value="1" type="int" />
+
+        <remap from="rgb/camera_info" to="/realsense_wrist_local/rgb/camera_info"/>
+        <remap from="depth/camera_info" to="/realsense_wrist_local/depth/camera_info"/>
+        <remap from="depth/image_rect" to="/realsense_wrist_local/depth/image_rect"/>
+
+        <remap from="depth_registered/camera_info" to="/realsense_wrist_local/depth_registered/camera_info"/>
+        <remap from="depth_registered/image_rect" to="/realsense_wrist_local/depth_registered/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="point_cloud_xyzrgb"
+        args="load depth_image_proc/point_cloud_xyzrgb realsense_nodelet_manager">
+
+        <param name="queue_size" value="1" type="int" />
+
+        <remap from="rgb/camera_info" to="/realsense_wrist_local/rgb/camera_info"/>
+        <remap from="rgb/image_rect_color" to="/realsense_wrist_local/rgb/image_rect"/>
+        <remap from="depth_registered/image_rect" to="/realsense_wrist_local/depth_registered/image_rect"/>
+
+        <remap from="depth_registered/points" to="/realsense_wrist_local/depth_registered/points"/>
+    </node>
+</launch>

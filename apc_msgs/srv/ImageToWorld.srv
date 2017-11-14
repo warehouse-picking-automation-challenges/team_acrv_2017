@@ -1,0 +1,7 @@
+sensor_msgs/PointCloud2 cloud
+std_msgs/Int32 image_x
+std_msgs/Int32 image_y
+---
+std_msgs/Float64 world_x
+std_msgs/Float64 world_y
+std_msgs/Float64 world_z

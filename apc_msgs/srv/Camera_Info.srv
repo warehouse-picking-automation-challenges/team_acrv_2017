@@ -1,0 +1,3 @@
+sensor_msgs/CameraInfo camera_info
+---
+std_msgs/Bool success

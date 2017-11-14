@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="camera_name" default="realsense" />
+
+    <node name="acrv_realsense_ros" pkg="acrv_realsense_ros" type="acrv_realsense_ros_node" output="screen" respawn="false">
+        <!-- <param name="serial_number" type="string" value="614203003672" /> -->
+        <param name="rotate_image_180" type="bool" value="true" />
+        <param name="camera_name" type="string" value="$(arg camera_name)" />
+        <param name="rgb_hd_camera_info_path" type="string" value="/home/apc-cameras/ros_ws/src/acrv_apc_2017/acrv_cameras/acrv_realsense_ros/cfg/$(arg camera_name)/rgb_hd_camera_info.yaml" />
+        <param name="depth_camera_info_path" type="string" value="/home/apc-cameras/ros_ws/src/acrv_apc_2017/acrv_cameras/acrv_realsense_ros/cfg/$(arg camera_name)/depth_camera_info.yaml" />
+    </node>
+
+    <node pkg="tf" type="static_transform_publisher" name="$(arg camera_name)_optical_frames"
+        args="-0.02418907 0.00054189 0.00639517 0.00461531 -0.00111049 -0.00109392 /$(arg camera_name)_depth_optical_frame /$(arg camera_name)_rgb_optical_frame 100" />
+</launch>

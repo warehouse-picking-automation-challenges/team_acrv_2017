@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="CartMan">
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
+    </gazebo>
+
+    <link name="world" />
+
+    <xacro:property name="base_link_x" value="0.0" />
+    <xacro:property name="base_link_y" value="0.0" />
+    <xacro:property name="base_link_z" value="1.281" />
+    <xacro:property name="base_link_r" value="${pi/2}" />
+    <xacro:property name="base_link_p" value="0.0" />
+    <xacro:property name="base_link_yaw" value="0.0" />
+
+    <joint name="world_to_base_link" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
+    <!-- The rpy xyz parameters should be in the joint, but for some reason
+         that doesn't work as expected -->
+    <link name="base_link">
+        <visual>
+            <origin rpy="0 0 0"
+                    xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/xAxis.dae" />
+            </geometry>
+        </visual>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/frame.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <mass value="10"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3" />
+        </inertial>
+        <!-- Collision For Floor -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0 0.0 -0.05"/>
+            <geometry>
+                <box size="1.5 1.5 0.01" />
+            </geometry>
+            <material name="darkred">
+                <color rgba=".5 .1 .1 1"/>
+            </material>
+        </collision>
+    </link>
+
+    <joint name="global_xyz_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="global_xyz_link"/>
+        <!-- <origin rpy="0 0 0" xyz="0 0.055 -0.082"/> -->
+        <origin rpy="${pi} 0 0" xyz="-0.5 0.45 ${base_link_z}"/>
+    </joint>
+
+    <link name="global_xyz_link">
+        <inertial>
+            <mass value="0.05"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+    </link>
+
+    <xacro:property name="x_axis_x" value="${base_link_x - 0.5}" />
+    <xacro:property name="x_axis_y" value="${base_link_y}" />
+    <xacro:property name="x_axis_z" value="${base_link_z}" />
+    <xacro:property name="x_axis_r" value="${base_link_r}" />
+    <xacro:property name="x_axis_p" value="${base_link_p}" />
+    <xacro:property name="x_axis_yaw" value="${base_link_yaw}" />
+    <xacro:property name="x_axis_limit" value="1.0" />
+    <xacro:property name="x_axis_lower_limit" value="0.0" />
+    <xacro:property name="x_axis_upper_limit" value="0.98" />
+
+    <joint name="x_axis_joint" type="prismatic">
+        <parent link="base_link" />
+        <child link="x_axis_link" />
+        <limit effort="1000.0" lower="${x_axis_lower_limit}"
+               upper="${x_axis_upper_limit}" velocity="1.0" />
+        <origin rpy="${x_axis_r} ${x_axis_p} ${x_axis_yaw}"
+                xyz="${x_axis_x} ${x_axis_y} ${x_axis_z}" />
+    </joint>
+
+    <link name="x_axis_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/yAxis.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <mass value="5" />
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3" />
+        </inertial>
+
+        <!-- Collision For Centre of X/Y Axis. -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.08 1.1" />
+            </geometry>
+            <material name="darkred">
+                <color rgba=".5 .1 .1 1"/>
+            </material>
+        </collision>
+
+    </link>
+
+    <xacro:property name="y_axis_x" value="0.0" />
+    <xacro:property name="y_axis_y" value="0.0" />
+    <xacro:property name="y_axis_z" value="-0.45" />
+    <xacro:property name="y_axis_r" value="0.0" />
+    <xacro:property name="y_axis_p" value="0.0" />
+    <xacro:property name="y_axis_yaw" value="0.0" />
+    <xacro:property name="y_axis_limit" value="0.92" />
+    <xacro:property name="y_axis_lower_limit" value="0" />
+    <xacro:property name="y_axis_upper_limit" value="0.92" />
+
+    <joint name="y_axis_joint" type="prismatic">
+        <axis xyz="0 0 1"/>
+        <parent link="x_axis_link"/>
+        <child link="y_axis_link"/>
+        <limit effort="1000.0" lower="${y_axis_lower_limit}"
+               upper="${y_axis_upper_limit}" velocity="1.0" />
+        <origin rpy="${y_axis_r} ${y_axis_p} ${y_axis_yaw}"
+                xyz="${y_axis_x} ${y_axis_y} ${y_axis_z}" />
+    </joint>
+
+    <link name="y_axis_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/yAxisCarriage.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3" />
+        </inertial>
+    </link>
+
+    <xacro:property name="z_axis_x" value="0.0" />
+    <xacro:property name="z_axis_y" value="${-0.068 - 0.975 - 0.027}" />
+    <xacro:property name="z_axis_z" value="0.0" />
+    <xacro:property name="z_axis_r" value="0.0" />
+    <xacro:property name="z_axis_p" value="0.0" />
+    <xacro:property name="z_axis_yaw" value="${pi}" />
+    <!-- <xacro:property name="z_axis_lower_limit" value="-0.08" /> -->
+    <xacro:property name="z_axis_lower_limit" value="0.0" />
+    <xacro:property name="z_axis_upper_limit" value="0.86" />
+
+    <joint name="z_axis_joint" type="prismatic">
+        <axis xyz="0 -1 0"/>
+        <parent link="y_axis_link"/>
+        <child link="z_axis_link"/>
+        <limit effort="1000.0" lower="${z_axis_lower_limit}"
+               upper="${z_axis_upper_limit}" velocity="1.0" />
+        <origin rpy="${z_axis_r} ${z_axis_p} ${z_axis_yaw}"
+                xyz="${z_axis_x} ${z_axis_y} ${z_axis_z}" />
+    </joint>
+
+    <link name="z_axis_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/zAxis.dae" />
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 -0.038 0"/>
+        </visual>
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/yaw.dae" />
+            </geometry>
+            <origin rpy="0 0 ${-pi/2}" xyz="0 0 0.012"/>
+        </visual>
+        <inertial>
+            <mass value="0.5"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+    </link>
+
+    <joint name="yaw_joint" type="revolute">
+        <axis xyz="0 0 1"/>
+        <parent link="z_axis_link"/>
+        <child link="yaw_link"/>
+        <limit effort="1000.0" lower="${-pi*3/4}" upper="${pi*3/4}" velocity="3.0"/>
+        <origin rpy="0 0 ${-pi/2}" xyz="0.0 0 0.0"/>
+    </joint>
+
+    <link name="yaw_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/roll.dae" />
+            </geometry>
+            <origin rpy="${-pi/2} ${pi/2} ${pi}" xyz="0 -0.024 0.114"/>
+        </visual>
+        <inertial>
+            <mass value="0.656"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+    </link>
+
+    <joint name="roll_joint" type="revolute">
+        <axis xyz="0 0 1"/>
+        <parent link="yaw_link"/>
+        <child link="roll_link"/>
+        <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="3.0"/>
+        <origin rpy="${-pi/2} ${pi/2} ${pi}" xyz="0 0 0.114"/>
+    </joint>
+
+    <link name="roll_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/pitch.dae" />
+            </geometry>
+            <origin rpy="0 ${-pi/2} ${pi/2}" xyz="0 0 0.09126"/>
+        </visual>
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/sucker_pitch.dae" />
+            </geometry>
+            <origin rpy="${pi/2} ${pi/2} ${pi}" xyz="0 0 -0.262"/>
+        </visual>
+        <inertial>
+            <mass value="0.656"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+    </link>
+
+    <joint name="pitch_joint" type="revolute">
+        <axis xyz="0 0 1"/>
+        <parent link="roll_link"/>
+        <child link="pitch_link"/>
+        <limit effort="1000.0" lower="-1" upper="1.3" velocity="3.0"/>
+        <origin rpy="${-pi/2} ${-pi/2} ${pi}" xyz="0 0 0.09126"/>
+    </joint>
+
+    <link name="pitch_link">
+        <inertial>
+            <mass value="0.656"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+    </link>
+
+    <joint name="realsense_joint" type="fixed">
+        <parent link="z_axis_link"/>
+        <child link="realsense_endpoint"/>
+        <!-- <origin rpy="0 0 0" xyz="0 0.055 -0.082"/> -->
+        <origin rpy="0 0 ${pi/2}" xyz="0 0.055 -0.07"/>
+    </joint>
+
+    <link name="realsense_endpoint">
+        <inertial>
+            <mass value="0.0"/>
+            <!-- No idea why, but if the inertia  & mass are positive then gazebo freaks out  -->
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/realsense_mount.dae" />
+            </geometry>
+            <origin rpy="${pi/2} 0 ${-pi/2}" xyz="-0.0138 0.035 0"/>
+        </visual>
+
+        <!-- Collision For Realsense -->
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.03 0.0 0.01"/>
+            <geometry>
+                <box size="0.1 0.15 0.07" />
+            </geometry>
+            <material name="darkred">
+                <color rgba=".5 .1 .1 1"/>
+            </material>
+        </collision>
+    </link>
+
+    <joint name="gripper_joint" type="fixed">
+        <parent link="pitch_link"/>
+        <child link="gripper_endpoint"/>
+        <origin rpy="0 ${pi/2} 0" xyz="0.313 0.003 0"/>
+    </joint>
+
+    <link name="gripper_endpoint">
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/gripper.dae" />
+            </geometry>
+            <origin rpy="0 0 ${pi/2}" xyz="0 0 0"/>
+        </visual>
+        <inertial>
+            <mass value="0.05"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+
+        <!-- Collision For Gripper -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0 0.0 -0.1"/>
+            <geometry>
+                <box size="0.1 0.05 0.25" />
+            </geometry>
+            <material name="darkred">
+                <color rgba=".5 .1 .1 1"/>
+            </material>
+        </collision>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0 0.03 -0.1"/>
+            <geometry>
+                <box size="0.04 0.03 0.06" />
+            </geometry>
+            <material name="darkred">
+                <color rgba=".5 .1 .1 1"/>
+            </material>
+        </collision>
+    </link>
+
+    <joint name="sucker_pitch_joint" type="revolute">
+        <axis xyz="0 0 1"/>
+        <parent link="roll_link"/>
+        <child link="sucker_pitch_link"/>
+        <limit effort="1000.0" lower="-1.4" upper="1.4" velocity="3.14"/>
+        <origin rpy="${-pi/2} 0 0" xyz="0 0 -0.282"/>
+    </joint>
+
+    <link name="sucker_pitch_link">
+        <inertial>
+            <mass value="0.656"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+    </link>
+
+    <joint name="sucker_joint" type="fixed">
+        <parent link="sucker_pitch_link"/>
+        <child link="sucker_endpoint"/>
+        <origin rpy="${-pi/2} ${pi/2} 0" xyz="0 0.045 0"/>
+    </joint>
+
+    <link name="sucker_endpoint">
+        <visual>
+            <geometry>
+                <mesh filename="package://cartesian_description/meshes/visual/bendy_sucker.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <mass value="0.05"/>
+            <inertia ixx="1e-3" ixy="1e-3" ixz="1e-3" iyy="1e-3" iyz="1e-3" izz="1e-3"/>
+        </inertial>
+
+        <!-- Collision For Sucker -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0 0.0 -0.01"/>
+            <geometry>
+                <cylinder length="0.04" radius="0.03" />
+            </geometry>
+            <material name="darkred">
+                <color rgba=".5 .1 .1 1"/>
+            </material>
+        </collision>
+
+    </link>
+
+
+    <!-- TRANSMISSIONS  -->
+    <transmission name="x_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="x_axis_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="x_axis_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="y_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="y_axis_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="y_axis_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="z_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="z_axis_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="z_axis_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="yaw_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="yaw_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="yaw_axis_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="roll_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="roll_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="roll_axis_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="pitch_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="pitch_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="pitch_axis_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="sucker_pitch_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="sucker_pitch_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="sucker_pitch_axis_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+
+    <!-- IR 640x480 CV8UC1
+        RGB 1920x1080 CV8UC3 -->
+    <!-- <gazebo reference="realsense">
+        <sensor type="depth" name="camera">
+            <always_on>true</always_on>
+            <update_rate>30.0</update_rate>
+            <camera>
+                <horizontal_fov>${68.0 * pi / 180.0}</horizontal_fov>
+                <image>
+                    <format>R8G8B8</format>
+                    <width>960</width>
+                    <height>540</height>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>8.0</far>
+                </clip>
+            </camera>
+            <plugin name="kinect_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+                <cameraName>camera</cameraName>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>30</updateRate>
+                <imageTopicName>rgb/image_raw</imageTopicName>
+                <depthImageTopicName>depth/image_raw</depthImageTopicName>
+                <pointCloudTopicName>depth/points</pointCloudTopicName>
+                <cameraInfotopicName>rgb/camera_info</cameraInfotopicName>
+                <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+                <frameName>camera_depth_optical_frame</frameName>
+                <baseline>0.024</baseline>
+                <distortion_k1>0.0</distortion_k1>
+                <distortion_k2>0.0</distortion_k2>
+                <distortion_k3>0.0</distortion_k3>
+                <distortion_t1>0.0</distortion_t1>
+                <distortion_t2>0.0</distortion_t2>
+                <pointCloudCutoff>0.2</pointCloudCutoff>
+                <pointCloudCutoffMax>1.5</pointCloudCutoffMax>
+                <CxPrime>0</CxPrime>
+                <Cx>640.0</Cx>
+                <Cy>480.0</Cy>
+                <focalLength>711.632252</focalLength>
+                <hackBaseLine>0</hackBaseLine>
+            </plugin>
+        </sensor>
+    </gazebo> -->
+
+<!-- THIS COMPLETELY BREAKS THE TRANSFORMS PUBLISHED BY THE CAMERA!!!!!!!!!!!!! - DOUG -->
+    <!-- <link name="camera_rgb_frame"/>
+    <link name="camera_rgb_optical_frame"/>
+    <link name="camera_depth_frame"/>
+    <link name="camera_depth_optical_frame"/>
+
+    <joint name="camera_rgb_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="realsense"/>
+        <child link="camera_rgb_frame"/>
+    </joint>
+
+    <joint name="camera_rgb_optical_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}"/>
+        <parent link="camera_rgb_frame"/>
+        <child link="camera_rgb_optical_frame"/>
+    </joint>
+
+    <joint name="camera_depth_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="realsense"/>
+        <child link="camera_depth_frame"/>
+    </joint>
+
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <joint name="camera_depth_optical_joint" type="fixed">
+        <origin xyz="0 0 0.05" rpy="${-pi/2} 0 ${-pi/2}"/>
+        <parent link="camera_depth_frame"/>
+        <child link="camera_depth_optical_frame"/>
+    </joint> -->
+</robot>

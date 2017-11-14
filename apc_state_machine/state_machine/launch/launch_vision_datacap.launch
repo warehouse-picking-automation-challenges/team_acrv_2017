@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find acrv_realsense_ros)/launch/realsense_camera_arm.launch" />
+  <include file="$(find acrv_realsense_ros)/launch/image_pipeline.launch" />
+</launch>

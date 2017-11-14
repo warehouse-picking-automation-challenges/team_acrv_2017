@@ -1,0 +1,4 @@
+sensor_msgs/Image image
+std_msgs/String item_name
+---
+std_msgs/Float32 confidence

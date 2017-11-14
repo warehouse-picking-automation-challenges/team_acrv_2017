@@ -1,0 +1,13 @@
+sensor_msgs/PointCloud2 input_cloud
+sensor_msgs/Image image
+sensor_msgs/Image depth
+std_msgs/Bool crop_image
+std_msgs/Bool crop_cloud
+std_msgs/String storage_name
+---
+sensor_msgs/PointCloud2 segmented_cloud_inliers
+sensor_msgs/PointCloud2 segmented_cloud_outliers
+sensor_msgs/PointCloud2 segmented_cloud_posonly
+sensor_msgs/Image cropped_image
+sensor_msgs/Image cropped_depth
+std_msgs/Bool success

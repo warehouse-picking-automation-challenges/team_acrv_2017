@@ -1,0 +1,125 @@
+<!-- GROUP STATES FOR THE APC SHELF in 2016 -->
+<group_state name="left_bin_A" group="left_arm">
+    <joint name="left_e0" value="1.06" />
+    <joint name="left_e1" value="1.232" />
+    <joint name="left_s0" value="0.072" />
+    <joint name="left_s1" value="-0.564" />
+    <joint name="left_w0" value="2.24" />
+    <joint name="left_w1" value="1.89" />
+    <joint name="left_w2" value="-0.888" />
+</group_state>
+<group_state name="left_bin_B" group="left_arm">
+    <joint name="left_e0" value="1.1159" />
+    <joint name="left_e1" value="1.7176" />
+    <joint name="left_s0" value="-0.742" />
+    <joint name="left_s1" value="-0.8556" />
+    <joint name="left_w0" value="2.4662" />
+    <joint name="left_w1" value="1.9370" />
+    <joint name="left_w2" value="-0.29529130166" />
+</group_state>
+<group_state name="left_bin_C" group="left_arm">
+    <joint name="left_e0" value="0.9817" />
+    <joint name="left_e1" value="1.0089" />
+    <joint name="left_s0" value="-0.659" />
+    <joint name="left_s1" value="-0.5388" />
+    <joint name="left_w0" value="2.3266" />
+    <joint name="left_w1" value="1.689" />
+    <joint name="left_w2" value="0.199" />
+</group_state>
+
+<group_state name="left_bin_D" group="left_arm">
+    <joint name="left_e0" value="0.9444" />
+    <joint name="left_e1" value="1.1709" />
+    <joint name="left_s0" value="0.1567" />
+    <joint name="left_s1" value="-0.2455" />
+    <joint name="left_w0" value="2.212" />
+    <joint name="left_w1" value="2.0508" />
+    <joint name="left_w2" value="-0.8563257" />
+</group_state>
+<group_state name="left_bin_E" group="left_arm">
+    <joint name="left_e0" value="0.9246" />
+    <joint name="left_e1" value="1.0047" />
+    <joint name="left_s0" value="-0.196" />
+    <joint name="left_s1" value="-0.2159" />
+    <joint name="left_w0" value="2.229" />
+    <joint name="left_w1" value="1.9420" />
+    <joint name="left_w2" value="-0.262310714728" />
+</group_state>
+<group_state name="left_bin_F" group="left_arm">
+    <joint name="left_e0" value="0.9890" />
+    <joint name="left_e1" value="0.6902" />
+    <joint name="left_s0" value="-0.500" />
+    <joint name="left_s1" value="-0.0732" />
+    <joint name="left_w0" value="2.1195" />
+    <joint name="left_w1" value="1.7809" />
+    <joint name="left_w2" value="0.132305842955" />
+</group_state>
+
+<group_state name="left_bin_G" group="left_arm">
+    <joint name="left_e0" value="0.2323" />
+    <joint name="left_e1" value="0.808" />
+    <joint name="left_s0" value="0.5196" />
+    <joint name="left_s1" value="-0.6488" />
+    <joint name="left_w0" value="-0.1764" />
+    <joint name="left_w1" value="1.3617" />
+    <joint name="left_w2" value="0.399985490441" />
+</group_state>
+<group_state name="left_bin_H" group="left_arm">
+    <joint name="left_e0" value="0.0644" />
+    <joint name="left_e1" value=" 1.312" />
+    <joint name="left_s0" value="0.1576" />
+    <joint name="left_s1" value="-0.9806" />
+    <joint name="left_w0" value="0.0019" />
+    <joint name="left_w1" value="1.1976" />
+    <joint name="left_w2" value=" -0.07938350577" />
+</group_state>
+<group_state name="left_bin_I" group="left_arm">
+    <joint name="left_e0" value="0.3616" />
+    <joint name="left_e1" value="0.6856" />
+    <joint name="left_s0" value="-0.296" />
+    <joint name="left_s1" value="-0.606" />
+    <joint name="left_w0" value="-0.261" />
+    <joint name="left_w1" value="1.4430" />
+    <joint name="left_w2" value="-0.286470912137" />
+</group_state>
+
+<group_state name="left_bin_J" group="left_arm">
+    <joint name="left_e0" value="-0.215" />
+    <joint name="left_e1" value="1.698" />
+    <joint name="left_s0" value="0.8946" />
+    <joint name="left_s1" value="-0.743213691730" />
+    <joint name="left_w0" value="0.1545" />
+    <joint name="left_w1" value="0.5890" />
+    <joint name="left_w2" value="0.070563116242" />
+</group_state>
+<group_state name="left_bin_K" group="left_arm">
+    <joint name="left_e0" value="0.0406" />
+    <joint name="left_e1" value="1.499" />
+    <joint name="left_s0" value="0.3581" />
+    <joint name="left_s1" value="-0.704864172033" />
+    <joint name="left_w0" value="-0.102" />
+    <joint name="left_w1" value="0.7719" />
+    <joint name="left_w2" value="0.222427214243" />
+</group_state>
+<group_state name="left_bin_L" group="left_arm">
+    <joint name="left_e0" value="0.2573" />
+    <joint name="left_e1" value=" 0.901" />
+    <joint name="left_s0" value="-0.267" />
+    <joint name="left_s1" value="-0.3635" />
+    <joint name="left_w0" value="-0.2270" />
+    <joint name="left_w1" value="1.0055" />
+    <joint name="left_w2" value="-0.33210684057" />
+</group_state>
+
+<group_state name="left_tote" group="left_arm">
+    <joint name="left_e0" value="0.38388" />
+    <joint name="left_e1" value="1.1631" />
+    <joint name="left_s0" value="-1.0193302335498575" />
+    <joint name="left_s1" value="-0.75395155724" />
+    <joint name="left_w0" value="-0.153398078" />
+    <joint name="left_w1" value="0.714835047" />
+    <joint name="left_w2" value="-0.20747090156" />
+</group_state>
+
+
+left_bin_D: (stretched out too much probably ...) 0.1392087565006013, 0.1737233242280231, 0.5725583290782307, -0.6937428113211783, -0.0337475773334791, 1.991107062675267, 0.16528642989465334, 1.188068120217253, 1.9358837543113923, 0.07708253459124204, -0.9974710073224903, -0.6691991187150117, 1.0289176134741413, 0.4973932704718454, -12.565987119160338]

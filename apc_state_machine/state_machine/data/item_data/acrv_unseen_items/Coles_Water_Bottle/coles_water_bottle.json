@@ -1,0 +1,12 @@
+{
+    "name": "coles_water_bottle",
+    "dimensions": [
+        0.070,
+        0.220,
+        0.070
+    ],
+    "weight": 0.0,
+    "type": "cylinder",
+    "description": "Object."
+}
+

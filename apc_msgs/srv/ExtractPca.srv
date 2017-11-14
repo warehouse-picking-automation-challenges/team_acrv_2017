@@ -1,0 +1,4 @@
+sensor_msgs/PointCloud2 cloud
+bool publish
+---
+geometry_msgs/Pose grasp_poses

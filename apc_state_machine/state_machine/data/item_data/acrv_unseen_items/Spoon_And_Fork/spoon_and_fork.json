@@ -1,0 +1,11 @@
+{
+    "name": "spoon_and_fork",
+    "dimensions": [
+        0.080,
+        0.170,
+        0.010
+    ],
+    "weight": 0.0,
+    "type": "other",
+    "description": "Object."
+}

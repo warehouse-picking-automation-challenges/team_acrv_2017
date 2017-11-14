@@ -1,0 +1,11 @@
+std_msgs/Empty empty
+---
+sensor_msgs/Image image_depth_image_raw
+sensor_msgs/Image image_depth_image_raw_m
+sensor_msgs/Image image_depth_image_rect
+sensor_msgs/Image image_depth_registered_image_rect
+sensor_msgs/PointCloud2 cloud_depth_registered_points
+sensor_msgs/Image image_ir_image_raw
+sensor_msgs/Image image_ir_image_rect
+sensor_msgs/Image image_rgb_image_raw
+sensor_msgs/Image image_rgb_image_rect

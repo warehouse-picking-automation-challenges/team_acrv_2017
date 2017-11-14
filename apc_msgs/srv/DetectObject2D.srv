@@ -1,0 +1,7 @@
+std_msgs/Int32 pleaseDetectObjectID
+---
+std_msgs/Bool success
+std_msgs/Int32 detectedObjectID
+std_msgs/Float32 confidenceOfObjectDetection
+std_msgs/Int32[] medianOfDetectedFeatures
+std_msgs/Float32 depthOfDetectedFeatureMedian

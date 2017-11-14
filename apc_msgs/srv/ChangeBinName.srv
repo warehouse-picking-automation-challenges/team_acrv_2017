@@ -1,0 +1,3 @@
+std_msgs/String Bin_Letter
+---
+std_msgs/Bool success

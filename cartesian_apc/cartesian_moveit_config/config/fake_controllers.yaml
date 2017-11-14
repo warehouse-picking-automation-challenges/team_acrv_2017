@@ -1,0 +1,34 @@
+controller_list:
+  - name: fake_whole_arm_controller
+    joints:
+      - x_axis_joint
+      - y_axis_joint
+      - z_axis_joint
+      - yaw_joint
+      - roll_joint
+      - pitch_joint
+  - name: fake_gripper_controller
+    joints:
+      - x_axis_joint
+      - y_axis_joint
+      - z_axis_joint
+      - yaw_joint
+      - roll_joint
+      - pitch_joint
+  - name: fake_sucker_controller
+    joints:
+      - x_axis_joint
+      - y_axis_joint
+      - z_axis_joint
+      - yaw_joint
+      - roll_joint
+  - name: fake_realsense_controller
+    joints:
+      - x_axis_joint
+      - y_axis_joint
+      - z_axis_joint
+  - name: fake_realsense_test_controller
+    joints:
+      - x_axis_joint
+      - y_axis_joint
+      - z_axis_joint

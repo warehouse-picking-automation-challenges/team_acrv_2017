@@ -1,0 +1,40 @@
+# HARDWARE CONTROLLER
+controller_list:
+  - name: "cartesian_motor_controller"
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+        - x_axis_joint
+        - y_axis_joint
+        - z_axis_joint
+        - yaw_joint
+        - roll_joint
+        - pitch_joint
+
+  - name: "cartesian_motor_controller_wrist"
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+        - yaw_joint
+        - roll_joint
+        - pitch_joint
+        - sucker_pitch_joint
+
+  - name: "cartesian_motor_controller_sucker"
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+        - x_axis_joint
+        - y_axis_joint
+        - z_axis_joint
+        - yaw_joint
+        - roll_joint
+        - sucker_pitch_joint
+
+  - name: "cartesian_motor_controller_realsense"
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+        - x_axis_joint
+        - y_axis_joint
+        - z_axis_joint

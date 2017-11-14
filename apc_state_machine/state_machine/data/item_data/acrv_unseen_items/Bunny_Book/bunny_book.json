@@ -1,0 +1,12 @@
+{
+    "name": "bunny_book",
+    "dimensions": [
+        0.170,
+        0.200,
+        0.005
+    ],
+    "weight": 0.0,
+    "type": "book",
+    "description": "Object."
+}
+

@@ -1,0 +1,4 @@
+std_msgs/String bin_id
+std_msgs/Bool collision_on
+---
+std_msgs/Bool success

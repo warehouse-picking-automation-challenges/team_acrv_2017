@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package>
+  <name>cartesian_gazebo</name>
+  <version>1.1.6</version>
+  <description>
+      Gazebo wrapper for harvey robot arms.
+  </description>
+
+
+  <author>Chris Lehnert</author>
+  <author email="c.lehnert@qut.edu.au">Chris Lehnert</author>
+  <maintainer email="c.lehnert@qut.edu.au">Chris Lehnert</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/ur_gazebo</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>cartesian_description</run_depend>
+  <run_depend>gazebo_ros_pkgs</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>ros_controllers</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>joint_trajectory_controller</run_depend>
+  <run_depend>effort_controllers</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>message_generation</run_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>message_generation</build_depend>
+
+
+  <export>
+      <gazebo_ros
+          gazebo_plugin_path="${prefix}/lib"
+          gazebo_model_path="${prefix}/.." />
+    </export>
+</package>

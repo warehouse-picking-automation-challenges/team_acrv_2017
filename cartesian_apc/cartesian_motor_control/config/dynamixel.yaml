@@ -1,0 +1,53 @@
+gripper_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_position_controller
+    type: JointPositionController
+  joint_name: gripper
+  joint_speed: 10.0 #1.17
+  joint_torque_limit: 0.45
+  motor:
+    id: 2 #6
+    init: 512
+    min: 0
+    max: 1023
+
+gripper_controller_torque:
+  controller:
+    package: dynamixel_controllers
+    module: joint_torque_controller
+    type: JointTorqueController
+  joint_name: gripper
+  joint_speed: 10.0 #1.17
+  joint_torque_limit: 0.45
+  motor:
+    id: 2 #6
+    init: 512
+    min: 0
+    max: 1023
+
+elephant_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: elephant
+    joint_speed: 10.0
+    motor:
+        id: 6 #2
+        init: 512
+        min: 0
+        max: 1023
+
+release_valve_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: release_valve
+    joint_speed: 10.0
+    motor:
+        id: 5
+        init: 512
+        min: 0
+        max: 1023

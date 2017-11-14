@@ -1,0 +1,15 @@
+<launch>
+
+    <node name="binary_classifier" pkg="acrv_apc_2017_perception" type="refinenet_interface.py" respawn="false"
+        output="screen">
+        <param name='epoch' type='int' value='125'/>
+        <param name='classnum' type='int' value='2'/>
+        <param name='workspace' type='int' value='1000'/>
+        <param name='model_name' type='str' value='20170701_tote_bin'/>
+        <param name='snapshot_folder' type='str' value='/home/apc/ros_ws/src/acrv_apc_2017_perception/src/refinenet/snapshots'/>
+    </node>
+
+    <!-- <param name='autosegmenter_image_topic' type='str' value='autoseg_image' /> -->
+    <node name="autosegmenter" pkg="acrv_apc_2017_perception" type="autoseg_2.py" respawn="false" output="screen" />
+
+</launch>

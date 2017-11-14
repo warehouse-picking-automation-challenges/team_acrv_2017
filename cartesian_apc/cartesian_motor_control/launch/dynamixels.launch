@@ -1,0 +1,29 @@
+<launch>
+  <!-- <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen"> -->
+  <node name="dynamixel_manager" pkg="cartesian_motor_control" type="apc_controller_manager.py" required="true" output="screen">
+    <rosparam>
+      namespace: dxl_manager
+      serial_ports:
+        pan_tilt_port:
+          port_name: "/dev/ttyUSB0"
+          baud_rate: 117647
+          min_motor_id: 1
+          max_motor_id: 10
+          update_rate: 30
+    </rosparam>
+  </node>
+
+  <rosparam file="$(find cartesian_motor_control)/config/dynamixel.yaml" command="load"/>
+  <node name="tilt_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+    args="--manager=dxl_manager
+          --port pan_tilt_port
+          gripper_controller
+          elephant_controller
+          release_valve_controller"
+    output="screen"/>
+
+  <node name="gripper_control" pkg="cartesian_motor_control" type="gripper_node.py" output="screen" />
+
+  <node name="dynamixel_resetter" pkg="cartesian_motor_control" type="dynamixel_resetter.py" output="screen"/>
+
+</launch>

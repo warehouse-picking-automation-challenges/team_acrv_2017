@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="paused" default="false" />
+    <arg name="gui" default="false" />
+    <env name="GAZEBO_MODEL_PATH" value="$(find cartesian_gazebo)" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name"
+             value="$(find cartesian_gazebo)/worlds/cartesian.world" />
+        <arg name="gui" value="$(arg gui)" />
+    </include>
+
+    <!-- Convert an xacro and put on parameter server -->
+    <!-- Also starts joint and robot state publishers -->
+    <include file="$(find cartesian_description)/launch/upload.launch" >
+        <arg name="gazebo" value="true" />
+    </include>
+
+    <!-- Spawn a robot into Gazebo -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-param robot_description -urdf -z 0.699 -model CartMan" />
+
+    <!-- Load controller settings -->
+    <rosparam file="$(find cartesian_gazebo)/config/cartesian_controllers.yaml"
+              command="load" />
+
+    <!-- spawn controller manager -->
+    <!-- Start the joint trajectory controller and the motor controller for the
+    gripper -->
+    <node name="ros_control_controller_spawner" pkg="controller_manager"
+          type="spawner" respawn="false" output="screen"
+          args="joint_state_controller cartesian_motor_controller --shutdown-timeout 1" />
+
+    <!-- Start the sucker controller but stopped -->
+    <node name="ros_control_controller_spawner_sucker" pkg="controller_manager"
+        type="spawner" respawn="false" output="screen"
+        args="--stopped cartesian_motor_controller_wrist cartesian_motor_controller_sucker cartesian_motor_controller_realsense --shutdown-timeout 1" />
+
+</launch>

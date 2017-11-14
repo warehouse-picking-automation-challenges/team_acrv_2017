@@ -1,0 +1,21 @@
+<launch>
+
+    <!-- <node name="cpp_vision_node" pkg="acrv_apc_2017_perception" type="rgbd_object_proposal_node" respawn="false"
+      output="screen">
+      <param type="str" name="depth_inpaint_config_path" value="/home/apc/ros_ws/src/acrv_apc_2017_perception/src/depth_inpaint_rgb/config/" />
+      <param type="str" name="depth_inpaint_caffe_model_path" value="/home/apc/ros_ws/src/caffe_data/" />
+    </node> -->
+
+    <node name="refinenet_classifier" pkg="acrv_apc_2017_perception" type="refinenet_interface.py" respawn="false"
+        output="screen">
+        <param name='epoch' type='int' value='196'/>
+        <!-- <param name='epoch' type='int' value='245'/> -->
+        <param name='classnum' type='int' value='59'/>
+        <!-- <param name='classnum' type='int' value='59'/> -->
+        <param name='workspace' type='int' value='1000'/>
+        <param name='model_name' type='str' value='170709_0135_all'/>
+        <!-- <param name='model_name' type='str' value='20170628_storage_all'/> -->
+        <param name='snapshot_folder' type='str' value='/home/apc/ros_ws/src/acrv_apc_2017_perception/src/refinenet/snapshots'/>
+    </node>
+
+</launch>

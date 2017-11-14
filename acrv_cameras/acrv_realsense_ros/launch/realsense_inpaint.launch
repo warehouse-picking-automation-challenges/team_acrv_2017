@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<launch>
+    <node pkg="nodelet" type="nodelet" name="realsense_nodelet_manager_inpaint" args="manager"/>
+
+    <node pkg="nodelet" type="nodelet" name="point_cloud_xyzrgb_inpaint"
+        args="load depth_image_proc/point_cloud_xyzrgb realsense_nodelet_manager_inpaint">
+
+        <param name="queue_size" value="20" type="int" />
+
+        <remap from="rgb/camera_info" to="/realsense_wrist/rgb/camera_info"/>
+        <remap from="rgb/image_rect_color" to="/inpaint/rgb_image_rect"/>
+        <remap from="depth_registered/image_rect" to="/inpaint/depth_inpainted"/>
+
+        <remap from="depth_registered/points" to="/inpaint/points"/>
+    </node>
+</launch>

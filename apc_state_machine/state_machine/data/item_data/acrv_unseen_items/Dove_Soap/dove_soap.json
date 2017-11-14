@@ -1,0 +1,12 @@
+{
+    "name": "dove_soap",
+    "dimensions": [
+        0.080,
+        0.120,
+        0.035
+    ],
+    "weight": 0.0,
+    "type": "box",
+    "description": "Object."
+}
+

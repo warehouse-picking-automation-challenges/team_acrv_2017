@@ -1,0 +1,16 @@
+<launch>
+    <arg name="moveit_controller_manager" default="moveit_ros_control_interface::MoveItControllerManager" />
+    <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+    <arg name="controller_manager_name" default="simple_controller_manager" />
+    <param name="controller_manager_name" value="$(arg controller_manager_name)" />
+    <arg name="use_controller_manager" default="true" />
+    <param name="use_controller_manager" value="$(arg use_controller_manager)" />
+    <rosparam file="$(find cartesian_moveit_config)/config/controllers.yaml"/>
+
+
+    <!-- <rosparam file="$(find ur5_moveit_config)/config/controllers.yaml"/>
+        <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
+    <param name="use_controller_manager" value="false"/>
+    <param name="trajectory_execution/execution_duration_monitoring" value="false"/> -->
+
+</launch>

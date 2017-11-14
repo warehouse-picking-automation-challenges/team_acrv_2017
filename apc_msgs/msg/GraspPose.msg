@@ -1,0 +1,3 @@
+geometry_msgs/Pose grasp_pose
+geometry_msgs/Pose pre_grasp_pose
+string move_group_name

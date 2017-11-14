@@ -1,0 +1,12 @@
+sensor_msgs/PointCloud2 cropped_cloud
+geometry_msgs/Pose camera_to_world
+std_msgs/Float32 object_longest_side_length
+std_msgs/Float32 object_middlest_side_length
+std_msgs/Float32 object_shortest_side_length
+std_msgs/Float32 resolution
+---
+std_msgs/Float32 x
+std_msgs/Float32 y
+std_msgs/Float32 z
+std_msgs/Float32 degrees_to_global_y
+std_msgs/Bool success

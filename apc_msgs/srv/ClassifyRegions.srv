@@ -1,0 +1,15 @@
+#takes an image as input. Should be already cropped
+std_msgs/String object_id
+std_msgs/String[] other_object_ids
+apc_msgs/ObjectProposals proposals
+sensor_msgs/Image image
+---
+std_msgs/Bool success
+sensor_msgs/PointCloud2 segment
+string item_id
+string[] other_item_ids
+sensor_msgs/PointCloud2[] other_item_segments
+float64 item_confidence
+float64[] other_item_confidences
+std_msgs/String message
+apc_msgs/ObjectProposals nonbackground_proposals

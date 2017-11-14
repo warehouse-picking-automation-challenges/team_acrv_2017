@@ -1,0 +1,18 @@
+<launch>
+  <include file="$(find acrv_realsense_ros)/launch/realsense_camera_arm.launch" />
+  <include file="$(find acrv_realsense_ros)/launch/image_pipeline.launch" />
+  <include file="$(find apc_3d_vision)/launch/toteCropping.launch" />
+
+  <include file="$(find acrv_realsense_ros)/launch/realsense_camera_local.launch" />
+
+  <!-- <include file="$(find apc_3d_vision)/launch/deep_tote_detector.launch" /> -->
+  <include file="$(find acrv_apc_2017_perception)/launch/run_refinenet_service_remote.launch" />
+  <node name="segment_pointcloud_node" pkg="apc_3d_vision" type="segment_pointcloud_node"/>
+
+  <include file="$(find apc_grasping)/launch/detect_grasp_candidates.launch" />
+  <include file="$(find apc_grasping)/launch/extract_pca.launch" />
+
+  <node name="octomap_node" pkg="apc_3d_vision" type="octomap_node" output="screen"/>
+  <node name="image_to_world_node" pkg="apc_3d_vision" type="image_to_world_node" output="screen"/>
+  <!-- <node name="find_free_space" pkg="apc_3d_vision" type="find_free_space"/> -->
+</launch>

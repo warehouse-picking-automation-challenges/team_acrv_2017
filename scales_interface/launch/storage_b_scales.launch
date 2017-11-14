@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+  <machine name="apc-arm" address="apc-arm" env-loader="/home/apc/ros_ws/load_environment.sh"
+      default="false" user="apc"/>
+
+  <node machine="apc-arm" pkg="scales_interface" type="scales" name="storage_B_scales" output="screen">
+      <param name="serial_number" value="0000000009858" type="string" />
+  </node>
+</launch>

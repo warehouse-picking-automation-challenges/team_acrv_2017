@@ -1,0 +1,5 @@
+sensor_msgs/PointCloud2 cloud
+float32 boundary_threshold
+bool grasp_from_centroid
+---
+apc_msgs/GraspCandidates grasp_candidates

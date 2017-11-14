@@ -1,0 +1,4 @@
+sensor_msgs/PointCloud2 labelled_points
+---
+std_msgs/Bool success
+sensor_msgs/PointCloud2[] labelled_points_array

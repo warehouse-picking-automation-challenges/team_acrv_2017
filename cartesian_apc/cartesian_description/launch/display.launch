@@ -1,0 +1,9 @@
+<launch>
+	<!-- <arg name="model" /> -->
+	<arg name="gui" default="True" />
+	<!-- <param name="robot_description" textfile="$(arg model)" /> -->
+	<param name="use_gui" value="$(arg gui)"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/urdf.rviz" required="true" />
+	<include file="$(find cartesian_description)/launch/upload.launch" />
+</launch>

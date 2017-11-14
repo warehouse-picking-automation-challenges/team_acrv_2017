@@ -1,0 +1,4 @@
+std_msgs/String item_id
+---
+std_msgs/Bool success
+geometry_msgs/Pose grasp_pose

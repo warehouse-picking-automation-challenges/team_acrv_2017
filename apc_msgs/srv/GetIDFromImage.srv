@@ -1,0 +1,8 @@
+#takes an image as input. Should be already cropped
+sensor_msgs/Image image
+---
+std_msgs/Bool success
+std_msgs/String label
+std_msgs/Int32 label_id
+std_msgs/Float32 score
+std_msgs/Float32MultiArray scores

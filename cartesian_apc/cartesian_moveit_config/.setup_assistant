@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: cartesian_description
+    relative_path: urdf/cartesian.urdf.xacro
+  SRDF:
+    relative_path: config/CartMan.srdf
+  CONFIG:
+    author_name: Matt
+    author_email: matthew.mctaggart@qut.edu.au
+    generated_timestamp: 1485313879

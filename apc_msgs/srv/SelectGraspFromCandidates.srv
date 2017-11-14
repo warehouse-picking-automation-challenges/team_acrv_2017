@@ -1,0 +1,9 @@
+apc_msgs/GraspCandidates grasp_candidates
+string bin_name
+string[] move_group_names_to_check
+bool vertical_only
+---
+std_msgs/Bool success
+geometry_msgs/PoseArray selected_grasps
+geometry_msgs/PoseArray selected_pre_grasps
+string[] grasp_move_group

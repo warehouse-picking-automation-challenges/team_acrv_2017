@@ -1,0 +1,8 @@
+std_msgs/String move_group
+std_msgs/String target_frame_id
+geometry_msgs/Pose target_pose
+std_msgs/Float32 velocity_scaling_factor
+std_msgs/Int32 max_attempts
+std_msgs/Float32 max_planning_time
+---
+std_msgs/Bool success

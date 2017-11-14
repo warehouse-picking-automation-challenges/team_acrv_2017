@@ -1,0 +1,383 @@
+{
+    "plastic_stapler": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "fiskars_scissors": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "harry_potter_dvd": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "faberware_measuring_spoons": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "tissue_box": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "epsom_salts": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "crayons": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "bath_sponge": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "coles_water_bottle": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "pets_bowl": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "glue_sticks": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "fiskars_scissors_red": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "hand_weight": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck_grip",
+        "suction_pressure": 3
+    },
+    "utility_brush": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "windex": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "flashlight": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "black_fashion_gloves": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "bunny_book": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "lavender_epsom_salts": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "cool_shot_glue_sticks": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 2
+    },
+    "acrv_t_shirt": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "ignore_weight": true,
+        "suction_pressure": 0
+    },
+    "hinged_ruled_index_cards": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "acrv_badge": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck_grip",
+        "suction_pressure": 2
+    },
+    "dove_soap": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "baby_sandals": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "sticky_tape": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "pump": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip_suck",
+        "suction_pressure": 3
+    },
+    "command_hooks": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "colgate_toothbrush_4pk": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "plastic_cup": {
+        "grasp_point_type": "rgb_centroid",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "plastic_wine_glass": {
+        "grasp_point_type": "rgb_centroid",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "whiteboard_marker": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 3
+    },
+    "balloons": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "mouse_traps": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "avery_binder": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "ignore_weight": true,
+        "suction_pressure": 3
+    },
+    "scotch_sponges": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "duct_tape": {
+        "grasp_point_type": "normal",
+        "grasp_type": "grip_suck",
+        "suction_pressure": 3
+    },
+    "annual_report": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "ignore_weight": true,
+        "suction_pressure": 3
+    },
+    "plush_monkey": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "marbles": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "shower_curtain": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "measuring_spoons": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "oral_b_toothbrush": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "burts_bees_baby_wipes": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "laugh_out_loud_jokes": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "wall_clock": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "spoon_and_fork": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck_grip",
+        "suction_pressure": 1
+    },
+    "poland_spring_water": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "irish_spring_soap": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "cd": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "table_cloth": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "paper_legends_cards": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 2
+    },
+    "baby_polo_shirt": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "ignore_weight": true,
+        "suction_pressure": 3
+    },
+    "tennis_ball_container": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 2
+    },
+    "pie_plates": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "toilet_brush": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "ignore_weight": true,
+        "suction_pressure": 0
+    },
+    "composition_book": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 2
+    },
+    "pineo_cleen": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "plastic_fork": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 3
+    },
+    "robots_dvd": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "ticonderoga_pencils": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "band_aid_tape": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "whiteboard_eraser": {
+        "grasp_point_type": "rgb_centroid",
+        "grasp_type": "suck_grip",
+        "suction_pressure": 3
+    },
+    "mesh_cup": {
+        "grasp_point_type": "rgb_centroid",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "speed_stick": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "acrv_cap": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "suck_grip",
+        "suction_pressure": 3
+    },
+    "ice_cube_tray": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "expo_eraser": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "robots_everywhere": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "reynolds_wrap": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "paper_towels": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 1
+    },
+    "hanes_socks": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 2
+    },
+    "squeaky_balls": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "suction_pressure": 0
+    },
+    "oomph_book": {
+        "grasp_point_type": "normal",
+        "grasp_type": "suck",
+        "suction_pressure": 3
+    },
+    "white_facecloth": {
+        "grasp_point_type": "centroid",
+        "grasp_type": "grip",
+        "ignore_weight": false,
+        "suction_pressure": 3
+    }
+}

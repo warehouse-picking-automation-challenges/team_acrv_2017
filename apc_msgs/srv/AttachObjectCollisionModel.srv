@@ -1,0 +1,5 @@
+std_msgs/Int32 object_id
+std_msgs/Float32 radius
+std_msgs/String link_to_attach_to
+---
+std_msgs/Bool success

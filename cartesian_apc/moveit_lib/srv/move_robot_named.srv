@@ -1,0 +1,7 @@
+std_msgs/String move_group
+std_msgs/String named_pose
+std_msgs/Float32 velocity_scaling_factor
+std_msgs/Int32 max_attempts
+std_msgs/Float32 max_planning_time
+---
+std_msgs/Bool success

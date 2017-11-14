@@ -1,0 +1,48 @@
+<launch>
+    <rosparam command="load"
+        file="$(find apc_grasping)/config/poses.yaml" />
+
+    <arg name="num_IK_attempts" default="2"/>
+
+    <!-- Note: These parameters are currently not found by the code, set in the code  -->
+    <!-- Weights for the grasp utility calculation -->
+    <arg name="move_group_weighting" default="0.0"/>
+    <arg name="rotational_weighting" default="0.15"/>
+    <arg name="positional_weighting" default="0.2"/>
+
+    <!--  Parameter to change the grasping offset towards the object-->
+    <!-- Move 4 cm more into the object -->
+    <arg name="grasp_offset" default="0.04"/>
+    <!-- Move 2 cm more into the object -->
+    <arg name="grasp_90_offset" default="0.02"/>
+    <arg name="pre_grasp_offset" default="0.06"/>
+
+
+    <arg name="marker_scale" default="0.1"/>
+    <!-- <arg name="move_group_weighting" default="0.0"/>
+    <arg name="rotational_weighting" default="0.0"/>
+    <arg name="positional_weighting" default="0.2"/> -->
+
+    <!-- NOT BEING USED AT THE MOMENT -->
+    <arg name="gravity_weighting" default="0.5"/>
+
+    <node name="grasp_selection_service_node" pkg="apc_grasping" type="grasp_selection_service_node"
+        respawn="true" output="screen">
+
+        <param name="num_IK_attempts" value="$(arg num_IK_attempts)" />
+        <param name="pre_grasp_offset" value="$(arg pre_grasp_offset)" />
+        <param name="move_group_weighting" value="$(arg move_group_weighting)" />
+        <param name="rotational_weighting" value="$(arg rotational_weighting)" />
+        <param name="positional_weighting" value="$(arg positional_weighting)" />
+        <param name="gravity_weighting" value="$(arg gravity_weighting)" />
+        <param name="marker_scale" value="$(arg marker_scale)" />
+        <param name="grasp_offset" value="$(arg grasp_offset)" />
+        <param name="grasp_90_offset" value="$(arg grasp_90_offset)" />
+
+        <rosparam command="load"
+          file="$(find baxter_moveit_config)/config/kinematics.yaml"/>
+
+        <rosparam command="load"
+          file="$(find baxter_moveit_config)/config/kinematics_rotation_only.yaml"/>
+     </node>
+</launch>

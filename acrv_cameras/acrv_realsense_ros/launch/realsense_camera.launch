@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="camera_name" default="realsense_wrist" />
+
+    <node name="acrv_realsense_ros" pkg="acrv_$(arg camera_name)_ros" type="acrv_realsense_ros_node" output="screen" respawn="true">
+        <param name="serial_number" type="string" value="617205003472" />
+        <param name="rotate_image_180" type="bool" value="false" />
+        <param name="camera_name" type="string" value="$(arg camera_name)" />
+        <param name="rgb_camera_info_path" type="string" value="$(find acrv_realsense_ros)/cfg/$(arg camera_name)/rgb_camera_info.yaml" />
+        <param name="depth_camera_info_path" type="string" value="$(find acrv_realsense_ros)/cfg/$(arg camera_name)/depth_camera_info.yaml" />
+    </node>
+
+    <!-- <node pkg="tf" type="static_transform_publisher" name="cartesian_realsense_link_broadcaster_image_pipeline"
+            args="0 -0.02426723 0 -1.57 -0.01579435 -1.57 /realsense_endpoint /$(arg camera_name)_depth_optical_frame 10" /> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="cartesian_realsense_link_broadcaster_image_pipeline"
+            args="0 0 0 -1.57 0 -1.57 /realsense_endpoint /$(arg camera_name)_rgb_optical_frame 10" />
+
+    <!-- <node pkg="tf" type="static_transform_publisher" name="$(arg camera_name)_optical_frames"
+        args="-0.02426723 -0.00047571 -0.00023367 -0.0001231  -0.01946618 -0.01579435 /$(arg camera_name)_depth_optical_frame /$(arg camera_name)_rgb_optical_frame 10" /> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="$(arg camera_name)_optical_frames"
+        args="0.02426723 0.00047571 0.00023367 0.0001231  0.01946618 0.01579435 /$(arg camera_name)_rgb_optical_frame /$(arg camera_name)_depth_optical_frame 10" />
+</launch>

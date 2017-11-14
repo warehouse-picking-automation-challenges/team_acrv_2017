@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<launch>
+
+<!--Settings for apc-->
+<!--  <arg name="object_cloud_topic" default="/object_cloud" />
+  <arg name="grasp_poses_topic" default="/grasp_poses" />
+  <arg name="suction_cup_radius" default="0.025" /> #25mm
+  <arg name="curvature_threshold" default="0.03" />
+  <arg name="down_sample_radius" default="0.025" />-->
+
+<!--Settings for capsicum-->
+  <arg name="object_cloud_topic" default="/objects" />
+  <arg name="grasp_poses_topic" default="/grasp_poses" />
+  <arg name="object_boundaries_topic" default="/object_boundaries" />
+  <arg name="marker_array_topic" default="/marker_array_topic" />
+
+  <!-- Defines the patch size for calculating each point normal -->
+  <arg name="suction_cup_radius" default="0.02" />
+
+  <!-- defines the down sample of the input cloud -->
+  <arg name="down_sample_radius" default="0.002" />
+
+  <!-- Defines the grid size of grasp points -->
+  <!-- Take a normal every x metres from the first down sampled cloud -->
+  <arg name="grasp_sample_radius" default="0.01" />
+
+<!-- curvature threshold is not being used -->
+  <arg name="curvature_threshold" default="1.0" />
+  <!-- <arg name="boundary_threshold" default="0.025" /> -->
+
+
+  <!-- throw out points within x metre of border -->
+  <!-- should usually be the size of my suction cup -->
+  <arg name="boundary_threshold" default="0.002" />
+
+
+  <!-- Weights for the grasp utility calculation -->
+  <!-- make sure these weights combined with grasp selection weights sum to 1.0 -->
+  <!-- <arg name="curvature_weight" default="0.0" />
+  <arg name="boundary_weight" default="0.0" /> -->
+  <arg name="curvature_weight" default="0.25" />
+  <arg name="boundary_weight" default="0.75" />
+
+
+  <arg name="utility_scale_to_marker_length" default="0.04" />
+
+  <arg name="boundary_detector_k" default="0" />
+  <!-- <arg name="boundary_detector_radius" default="0.05" /> -->
+  <arg name="boundary_detector_radius" default="0.005" />
+  <arg name="boundary_detector_angle" default="1.57" />
+  <!-- <arg name="boundary_detector_angle" default="0.9" /> -->
+
+  <arg name="num_grasps" default="100" />
+  <arg name="square_grid_size" default="0.02" />
+
+  <node name="detect_grasp_candidates" pkg="apc_grasping" type="detect_grasp_candidates" output="screen">
+
+  <param name="object_cloud_topic" value="$(arg object_cloud_topic)" />
+  <param name="grasp_poses_topic" value="$(arg grasp_poses_topic)" />
+  <param name="object_boundaries_topic" value="$(arg object_boundaries_topic)" />
+  <param name="marker_array_topic" value="$(arg marker_array_topic)" />
+
+
+  <param name="suction_cup_radius" value="$(arg suction_cup_radius)" />
+  <param name="down_sample_radius" value="$(arg down_sample_radius)" />
+  <param name="grasp_sample_radius" value="$(arg grasp_sample_radius)" />
+
+  <param name="curvature_threshold" value="$(arg curvature_threshold)" />
+  <param name="boundary_threshold" value="$(arg boundary_threshold)" />
+  <param name="curvature_weight" value="$(arg curvature_weight)" />
+  <param name="boundary_weight" value="$(arg boundary_weight)" />
+
+
+  <param name="boundary_detector_k" value="$(arg boundary_detector_k)" />
+  <param name="boundary_detector_radius" value="$(arg boundary_detector_radius)" />
+  <param name="boundary_detector_angle" value="$(arg boundary_detector_angle)" />
+  <param name="utility_scale_to_marker_length" value="$(arg utility_scale_to_marker_length)" />
+
+  <param name="num_grasps" value="$(arg num_grasps)" />
+  <param name="square_grid_size" value="$(arg square_grid_size)" />
+
+
+  </node>
+
+</launch>

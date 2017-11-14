@@ -1,0 +1,34 @@
+# Ignore binaries
+*.pyc
+*.cu
+*.o
+*.mexa64
+*.so
+
+# Ignore models
+*.h5
+
+
+src/rgbd_object_proposals/includes/caffe-hed/Makefile\.config
+
+*.m~
+
+src/rgbd_object_proposals/segproposals\.mat
+
+src/depth_inpaint_rgb/caffe_depth_inpaint_rgb/\.build_release/
+
+src/depth_inpaint_rgb/build/
+
+src/depth_inpaint_rgb/caffe_depth_inpaint_rgb/build
+
+src/depth_inpaint_rgb/caffe_depth_inpaint_rgb/Makefile
+
+src/depth_inpaint_rgb/caffe_depth_inpaint_rgb/Makefile\.config
+
+src/interface/results/
+
+src/eval_semseg/tmp*
+
+src/refinenet/snapshots/*
+src/refinenet/outputs/*
+src/refinenet/VOC_DATA/*

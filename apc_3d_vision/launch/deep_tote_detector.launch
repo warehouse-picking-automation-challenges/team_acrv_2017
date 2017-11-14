@@ -1,0 +1,7 @@
+<launch>
+  <node name="deep_tote_detector" pkg="apc_3d_vision" type="deep_tote_detector.py">
+    <param name="model" type="string" value="$(find apc_3d_vision)/models/20_model_v9.hdf5" />
+    <param name="inference_counts" type="int" value="30" />
+    <param name="confidence_level" type="double" value="0.5" />
+  </node>
+</launch>

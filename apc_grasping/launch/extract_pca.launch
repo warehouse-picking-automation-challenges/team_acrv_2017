@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<launch>
+  <node name="extract_pca" pkg="apc_grasping" type="extract_pca" output="screen" />
+</launch>

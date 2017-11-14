@@ -1,0 +1,12 @@
+{
+    "name": "oral_b_toothbrush",
+    "dimensions": [
+        0.045,
+        0.225,
+        0.020
+    ],
+    "weight": 0.0,
+    "type": "clamshell",
+    "description": "Object."
+}
+

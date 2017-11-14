@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+  <node pkg="scales_interface" type="scales" name="storage_A_scales" output="screen">
+      <param name="serial_number" value="0000000011181" type="string" />
+  </node>
+</launch>

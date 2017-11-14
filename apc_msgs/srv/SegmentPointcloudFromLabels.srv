@@ -1,0 +1,5 @@
+sensor_msgs/Image classification
+sensor_msgs/PointCloud2 input_cloud
+---
+sensor_msgs/PointCloud2[] segmented_pointclouds
+apc_msgs/AlignedDimensions[] aligned_dimensions

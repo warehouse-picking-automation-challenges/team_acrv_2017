@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <rosparam command="load" file="$(find apc_3d_vision)/config/storage_config.yaml" />
+
+  <node pkg="apc_3d_vision" type="cropTote" name="ToteCroppingNode" output="screen" respawn="True">
+      <!-- <rosparam command="load" file="$(find apc_3d_vision)/launch/BinDim.yaml" /> -->
+  </node>
+</launch>

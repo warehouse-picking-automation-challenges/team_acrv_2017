@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find acrv_realsense_ros)/launch/realsense_camera_arm.launch" />
+  <include file="$(find acrv_realsense_ros)/launch/image_pipeline.launch" />
+  <include file="$(find apc_3d_vision)/launch/toteCropping.launch" />
+  <include file="$(find segmentation_ros)/launch/segmentation_ros_node.launch" />
+  <node name="object_proposal_node" pkg="object_proposal" type="object_proposal_node"/>
+  <include file="$(find apc_grasping)/launch/detect_grasp_candidates.launch" />
+  <node name="find_free_space" pkg="apc_3d_vision" type="find_free_space"/>
+</launch>

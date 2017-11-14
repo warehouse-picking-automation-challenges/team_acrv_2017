@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+  <include file="$(find scales_interface)/launch/stow_tote_scales.launch" />
+  <include file="$(find scales_interface)/launch/storage_a_scales.launch" />
+  <include file="$(find scales_interface)/launch/storage_b_scales.launch" />
+</launch>

@@ -1,0 +1,9 @@
+std_msgs/String bin_id
+std_msgs/String frame_id
+std_msgs/Bool collision_on
+geometry_msgs/Pose collision_model_pose
+float64 width
+float64 height
+float64 depth
+---
+std_msgs/Bool success

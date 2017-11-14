@@ -1,0 +1,12 @@
+{
+    "name": "acrv_t_shirt",
+    "dimensions": [
+        0.270,
+        0.320,
+        0.110
+    ],
+    "weight": 0.0,
+    "type": "deformable",
+    "description": "Object."
+}
+

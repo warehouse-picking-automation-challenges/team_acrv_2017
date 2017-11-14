@@ -1,0 +1,12 @@
+{
+    "name": "paper_towels",
+    "dimensions": [
+        0.215,
+        0.230,
+        0.011
+    ],
+    "weight": 0.0,
+    "type": "wrapped",
+    "description": "Object."
+}
+

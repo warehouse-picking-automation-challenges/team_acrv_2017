@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="camera_name" default="realsense" />
+
+    <node name="data_regeneration_server_node" pkg="acrv_realsense_ros" type="data_regeneration_server_node" output="screen" respawn="false" />
+
+    <node pkg="tf" type="static_transform_publisher" name="$(arg camera_name)_optical_frames"
+        args="-0.02423357 0.00027676 0.00456033 0.00364895 0.00326953 0.0042709 /$(arg camera_name)_depth_optical_frame /$(arg camera_name)_rgb_optical_frame 100" />
+
+    <node pkg="nodelet" type="nodelet" name="realsense_nodelet_manager" args="manager"/>
+
+    <node pkg="nodelet" type="nodelet" name="rectify_rgb"
+        args="load image_proc/rectify realsense_nodelet_manager">
+
+        <remap from="camera_info" to="/$(arg camera_name)/rgb/camera_info"/>
+        <remap from="image_mono" to="/$(arg camera_name)/rgb/image_raw"/>
+
+        <remap from="image_rect" to="/$(arg camera_name)/rgb/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="rectify_rgb_hd"
+        args="load image_proc/rectify realsense_nodelet_manager">
+
+        <remap from="camera_info" to="/$(arg camera_name)/rgb_hd/camera_info"/>
+        <remap from="image_mono" to="/$(arg camera_name)/rgb_hd/image_raw"/>
+
+        <remap from="image_rect" to="/$(arg camera_name)/rgb_hd/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="rectify_ir"
+        args="load image_proc/rectify realsense_nodelet_manager">
+
+        <remap from="camera_info" to="/$(arg camera_name)/ir/camera_info"/>
+        <remap from="image_mono" to="/$(arg camera_name)/ir/image_raw"/>
+
+        <remap from="image_rect" to="/$(arg camera_name)/ir/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="convert_depth"
+        args="load depth_image_proc/convert_metric realsense_nodelet_manager">
+
+        <remap from="image_raw" to="/$(arg camera_name)/depth/image_raw"/>
+
+        <remap from="image" to="/$(arg camera_name)/depth/image_raw_m"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="rectify_depth"
+        args="load image_proc/rectify realsense_nodelet_manager">
+
+        <remap from="camera_info" to="/$(arg camera_name)/depth/camera_info"/>
+        <remap from="image_mono" to="/$(arg camera_name)/depth/image_raw_m"/>
+
+        <remap from="image_rect" to="/$(arg camera_name)/depth/image_rect"/>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="register_depth"
+        args="load depth_image_proc/register realsense_nodelet_manager">
+
+        <param name="queue_size" value="10" type="int" />
+
+        <remap from="rgb/camera_info" to="/$(arg camera_name)/rgb/camera_info"/>
+        <remap from="depth/camera_info" to="/$(arg camera_name)/depth/camera_info"/>
+        <remap from="depth/image_rect" to="/$(arg camera_name)/depth/image_rect"/>
+
+        <remap from="depth_registered/camera_info" to="/$(arg camera_name)/depth_registered/camera_info"/>
+        <remap from="depth_registered/image_rect" to="/$(arg camera_name)/depth_registered/image_rect"/>
+    </node>
+
+    <!-- <node pkg="nodelet" type="nodelet" name="register_depth_hd"
+        args="load depth_image_proc/register realsense_nodelet_manager">
+
+        <param name="queue_size" value="10" type="int" />
+
+        <remap from="rgb/camera_info" to="/$(arg camera_name)/rgb_hd/camera_info"/>
+        <remap from="depth/camera_info" to="/$(arg camera_name)/depth/camera_info"/>
+        <remap from="depth/image_rect" to="/$(arg camera_name)/depth/image_rect"/>
+
+        <remap from="depth_registered/camera_info" to="/$(arg camera_name)/depth_hd_registered/camera_info"/>
+        <remap from="depth_registered/image_rect" to="/$(arg camera_name)/depth_hd_registered/image_rect"/>
+    </node> -->
+
+    <node pkg="nodelet" type="nodelet" name="point_cloud_xyzrgb"
+        args="load depth_image_proc/point_cloud_xyzrgb realsense_nodelet_manager">
+
+        <param name="queue_size" value="10" type="int" />
+
+        <remap from="rgb/camera_info" to="/$(arg camera_name)/rgb/camera_info"/>
+        <remap from="rgb/image_rect_color" to="/$(arg camera_name)/rgb/image_rect"/>
+        <remap from="depth_registered/image_rect" to="/$(arg camera_name)/depth_registered/image_rect"/>
+
+        <remap from="depth_registered/points" to="/$(arg camera_name)/depth_registered/points"/>
+    </node>
+
+    <!-- <node pkg="nodelet" type="nodelet" name="point_cloud_hd_xyzrgb"
+        args="load depth_image_proc/point_cloud_xyzrgb realsense_nodelet_manager">
+
+        <param name="queue_size" value="10" type="int" />
+
+        <remap from="rgb/camera_info" to="/$(arg camera_name)/rgb_hd/camera_info"/>
+        <remap from="rgb/image_rect_color" to="/$(arg camera_name)/rgb_hd/image_rect"/>
+        <remap from="depth_registered/image_rect" to="/$(arg camera_name)/depth_hd_registered/image_rect"/>
+
+        <remap from="depth_registered/points" to="/$(arg camera_name)/depth_hd_registered/points"/>
+    </node> -->
+</launch>

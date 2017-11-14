@@ -1,0 +1,20 @@
+camera_matrix:
+  cols: 3
+  data: [478.16500270832177, 0.0, 319.30375283201334, 0.0, 478.00508538089116, 233.81551652586262, 0.0, 0.0, 1.0]
+  rows: 3
+camera_name: realsense_wrist
+distortion_coefficients:
+  cols: 5
+  data: [-0.11063554193603793, -0.26155737544553453, 0.006984969537856924, -0.0010767266522197397, 0.5475632541169891]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [475.59185791015625, 0.0, 318.8390321517545, 0.0, 0.0, 472.31103515625, 237.86859076024848, 0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

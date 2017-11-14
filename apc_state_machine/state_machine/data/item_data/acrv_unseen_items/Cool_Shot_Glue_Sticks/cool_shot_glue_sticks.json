@@ -1,0 +1,12 @@
+{
+    "name": "cool_shot_glue_sticks",
+    "dimensions": [
+        0.090,
+        0.160,
+        0.010
+    ],
+    "weight": 0.0,
+    "type": "deformable",
+    "description": "Object."
+}
+

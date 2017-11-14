@@ -1,0 +1,12 @@
+{
+    "name": "command_hooks",
+    "dimensions": [
+        0.130,
+        0.170,
+        0.045
+    ],
+    "weight": 0.0,
+    "type": "clamshell",
+    "description": "Object."
+}
+

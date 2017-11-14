@@ -1,0 +1,4 @@
+std_msgs/Int32 object_id
+std_msgs/String link_it_is_attached_to
+---
+std_msgs/Bool success

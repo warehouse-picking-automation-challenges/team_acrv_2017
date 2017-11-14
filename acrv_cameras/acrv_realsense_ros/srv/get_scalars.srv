@@ -1,0 +1,8 @@
+sensor_msgs/Image img_msg
+int32 top_left_x
+int32 top_left_y
+int32 bot_right_x
+int32 bot_right_y
+---
+float64 ra
+float64 ba

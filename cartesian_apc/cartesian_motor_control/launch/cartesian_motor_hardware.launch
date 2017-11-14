@@ -1,0 +1,36 @@
+<launch>
+
+  <!-- GDB functionality -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+  <!-- Load example URDF -->
+  <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find harvey_description)/urdf/harvey.urdf.xacro'" /> -->
+  <!-- <group ns="harvey_lift"> -->
+
+  <include file="$(find cartesian_description)/launch/upload.launch"/>
+  <!-- <include file="$(find cartesian_description)/launch/upload_moveit.launch"/> -->
+
+
+  <node name="rosserial_python" pkg="rosserial_python" type="serial_node.py"
+    output="screen" args="/dev/ttyACM0"/>
+
+  <!-- Load controller settings -->
+  <rosparam file="$(find cartesian_motor_control)/config/controllers.yaml" command="load"/>
+
+  <!-- Load hardware interface -->
+  <node name="cartesian_motor_hardware_interface" pkg="cartesian_motor_control" type="cartesian_motor_hw_main"
+    output="screen" launch-prefix="$(arg launch_prefix)"/>
+
+  <!-- spawn controller manager -->
+  <!-- Start the joint trajectory controller and the motor controller for the
+  gripper -->
+  <node name="ros_control_controller_spawner" pkg="controller_manager"
+        type="spawner" respawn="false" output="screen"
+        args="--stopped joint_state_controller cartesian_motor_controller cartesian_motor_controller_wrist cartesian_motor_controller_sucker cartesian_motor_controller_realsense --shutdown-timeout 1" />
+
+  <node name="controller_starter" pkg="cartesian_motor_control"
+        type="controller_starter.py" output="screen" />
+
+</launch>

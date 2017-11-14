@@ -1,0 +1,11 @@
+std_msgs/String[] expected_labels
+sensor_msgs/Image color
+sensor_msgs/Image color_hd
+sensor_msgs/Image depth
+---
+sensor_msgs/Image classification
+std_msgs/String[] label
+sensor_msgs/Image inpainted_depth
+sensor_msgs/Image overlay_img
+sensor_msgs/Image confidence_map
+std_msgs/UInt8[] segment_certainties

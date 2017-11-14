@@ -1,0 +1,163 @@
+# ros_control_boilerplate Settings -----------------------
+# Settings for ros_control control loop
+hardware_control_loop:
+    loop_hz: 100
+    cycle_time_error_threshold: 0.012
+
+# Settings for ros_control hardware interface
+hardware_interface:
+    joints:
+        - x_axis_joint
+        - y_axis_joint
+        - z_axis_joint
+        - yaw_joint
+        - roll_joint
+        - pitch_joint
+        - sucker_pitch_joint
+
+sucker_pitch_joint_scaling: -0.6  # This shouldn't need to change, it's the gear ratio effectively.
+sucker_pitch_joint_offset: -0.1  # Use RQT to adjust the elephant controller to straight and use that number.
+
+# Publish all joint states ----------------------------------
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+    type:         joint_state_controller/JointStateController
+    publish_rate: 100
+
+# Joint Trajectory Controller -------------------------------
+# For detailed explanations of parameter see http://wiki.ros.org/joint_trajectory_controller
+cartesian_motor_controller:
+    type: position_controllers/JointTrajectoryController
+    # These joints can likely just be copied from the hardware_interface list above
+    joints:
+        - x_axis_joint
+        - y_axis_joint
+        - z_axis_joint
+        - yaw_joint
+        - roll_joint
+        - pitch_joint
+    constraints:
+        goal_time: 5.0
+        x_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        y_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        z_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        yaw_joint:
+            trajectory: 0.60
+            goal:       0.15
+        roll_joint:
+            trajectory: 0.60
+            goal:       0.15
+        pitch_joint:
+            trajectory: 0.60
+            goal:       0.15
+    state_publish_rate:  60 # Defaults to 50
+    action_monitor_rate: 20 # Defaults to 20
+    gains:
+        x_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        y_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        z_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        yaw_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        roll_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        pitch_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+
+cartesian_motor_controller_wrist:
+    type: position_controllers/JointTrajectoryController
+    # These joints can likely just be copied from the hardware_interface list above
+    joints:
+        - yaw_joint
+        - roll_joint
+        - pitch_joint
+        - sucker_pitch_joint
+    constraints:
+        goal_time: 5.0
+        yaw_joint:
+            trajectory: 0.60
+            goal:       0.15
+        roll_joint:
+            trajectory: 0.60
+            goal:       0.15
+        pitch_joint:
+            trajectory: 0.60
+            goal:       0.15
+        sucker_pitch_joint:
+            trajectory: 0.60
+            goal:       0.15
+    state_publish_rate:  60 # Defaults to 50
+    action_monitor_rate: 20 # Defaults to 20
+    gains:
+        yaw_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        roll_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        pitch_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        sucker_pitch_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+
+cartesian_motor_controller_sucker:
+    type: position_controllers/JointTrajectoryController
+    # These joints can likely just be copied from the hardware_interface list above
+    joints:
+        - x_axis_joint
+        - y_axis_joint
+        - z_axis_joint
+        - yaw_joint
+        - roll_joint
+        - sucker_pitch_joint
+    constraints:
+        goal_time: 5.0
+        x_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        y_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        z_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        yaw_joint:
+            trajectory: 0.60
+            goal:       0.15
+        roll_joint:
+            trajectory: 0.60
+            goal:       0.15
+        sucker_pitch_joint:
+            trajectory: 0.60
+            goal:       0.15
+    state_publish_rate:  60 # Defaults to 50
+    action_monitor_rate: 20 # Defaults to 20
+    gains:
+        x_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        y_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        z_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        yaw_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        roll_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        sucker_pitch_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+
+
+cartesian_motor_controller_realsense:
+    type: position_controllers/JointTrajectoryController
+    # These joints can likely just be copied from the hardware_interface list above
+    joints:
+        - x_axis_joint
+        - y_axis_joint
+        - z_axis_joint
+    constraints:
+        goal_time: 5.0
+        x_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        y_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+        z_axis_joint:
+            trajectory: 0.60
+            goal:       0.01
+    state_publish_rate:  60 # Defaults to 50
+    action_monitor_rate: 20 # Defaults to 20
+    gains:
+        x_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        y_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}
+        z_axis_joint: {p: 1.0,  i: 0.0, d: 0.00, i_clamp: 1}

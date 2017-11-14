@@ -1,0 +1,6 @@
+build/
+*.pcd
+.DS_Store
+data/
+rs_mainarmcamera_data
+scripts/*.yaml

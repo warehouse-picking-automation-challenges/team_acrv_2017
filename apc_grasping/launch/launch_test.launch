@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find apc_grasping)/launch/realsense_camera.launch" />
+  <include file="$(find apc_grasping)/launch/image_pipeline.launch" />
+  <include file="$(find apc_3d_vision)/launch/toteCropping.launch" />
+  <include file="$(find segmentation_ros)/launch/segmentation_ros_node.launch" />
+  <node name="object_proposal_node" pkg="object_proposal" type="object_proposal_node"/>
+</launch>

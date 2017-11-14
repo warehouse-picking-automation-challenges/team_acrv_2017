@@ -1,0 +1,12 @@
+{
+    "name": "pets_bowl",
+    "dimensions": [
+        0.120,
+        0.120,
+        0.035
+    ],
+    "weight": 0.0,
+    "type": "other",
+    "description": "Object."
+}
+

@@ -1,0 +1,20 @@
+<launch>
+  <machine name="apc-puppy" address="apc-puppy" env-loader="/home/apc/ros_ws/load_environment.sh"
+      default="false" user="apc"/>
+
+    <node name="tote_classifier" pkg="acrv_apc_2017_perception" type="refinenet_interface.py" respawn="false"
+        output="screen" machine="apc-puppy">
+        <param name='classnum' type='int' value='59'/>
+        <param name='workspace' type='int' value='1000'/>
+        <!-- <param name='model_name' type='str' value='20170702_tote_all_rotaugm'/>
+        <param name='epoch' type='int' value='225'/> -->
+        <!-- <param name='model_name' type='str' value='20170630_tote_offline'/> -->
+        <!-- <param name='epoch' type='int' value='195'/> -->
+        <param name='model_name' type='str' value='170713_tote_all'/> -->
+        <!-- <param name='model_name' type='str' value='170714_1157_all'/> --> -->
+        <param name='epoch' type='int' value='290'/>
+        <!-- <param name='epoch' type='int' value='220'/> -->
+        <param name='snapshot_folder' type='str' value='/home/apc/ros_ws/src/acrv_apc_2017_perception/src/refinenet/snapshots'/>
+    </node>
+
+</launch>

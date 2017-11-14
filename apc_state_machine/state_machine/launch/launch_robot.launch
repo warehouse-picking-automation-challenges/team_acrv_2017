@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find ros_arduino_python)/launch/arduino.launch" />
+  <include file="$(find cartesian_motor_control)/launch/dynamixels.launch" />
+  <include file="$(find cartesian_motor_control)/launch/cartesian_motor_hardware.launch" />
+  <include file="$(find cartesian_moveit_config)/launch/CartMan_moveit.launch" />
+</launch>
